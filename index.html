@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniformHub — Modern Uniform E-Commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>📞 +855 12 345 678</span>
+        <span>✉️ support@uniformhub.com</span>
+      </div>
+      <div class="topbar-right">
+        <div class="switcher">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="km">ខ្មែរ</button>
+        </div>
+        <div class="switcher">
+          <button class="cur-btn" data-cur="USD">USD</button>
+          <button class="cur-btn" data-cur="KHR">KHR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <a href="index.html" class="brand">
+        <span class="logo-mark">👕</span>
+        <span>UniformHub<span class="sub" lang-en>Uniform Specialists</span><span class="sub" lang-km>អ្នកឯកទេសឯកសណ្ឋាន</span></span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" data-nav="home"><span lang-en>Home</span><span lang-km>ទំព័រដើម</span></a>
+        <a href="products.html" data-nav="products"><span lang-en>Shop</span><span lang-km>ទំនិញ</span></a>
+        <a href="custom-order.html" data-nav="custom"><span lang-en>Custom Uniform</span><span lang-km>តាមបំណង</span></a>
+        <a href="orders.html" data-nav="orders"><span lang-en>Track Order</span><span lang-km>តាមដានការបញ្ជាទិញ</span></a>
+      </nav>
+      <form class="header-search" id="headerSearch">
+        <input type="text" id="headerSearchInput" placeholder="Search uniforms...">
+        <button type="submit">🔍</button>
+      </form>
+      <div class="header-actions">
+        <button type="button" class="icon-btn search-toggle-btn" id="searchToggle">🔍</button>
+        <a href="wishlist.html" class="icon-btn">❤️<span class="badge-count js-wish-count" style="display:none">0</span></a>
+        <a href="cart.html" class="icon-btn">🛒<span class="badge-count js-cart-count" style="display:none">0</span></a>
+        <div class="user-menu">
+          <button type="button" class="icon-btn">👤</button>
+          <div class="user-drop" id="userMenuBox"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">✂️ <span lang-en>Tailored Uniforms, Delivered</span><span lang-km>ឯកសណ្ឋានកាត់ដេរតាមបំណង ដឹកជញ្ជូនដល់ដៃ</span></span>
+        <h1 lang-en>Uniforms built for <em>School, Work & Everything</em> in between</h1>
+        <h1 lang-km>ឯកសណ្ឋានសម្រាប់ <em>សាលារៀន ការងារ និងគ្រប់តម្រូវការ</em></h1>
+        <p class="lead" lang-en>Shop premium school, university, office and corporate uniforms — or design your own with our custom uniform service. Fast delivery across Cambodia.</p>
+        <p class="lead" lang-km>ជ្រើសរើសទិញឯកសណ្ឋានគុណភាពខ្ពស់សម្រាប់សាលារៀន សាកលវិទ្យាល័យ ការិយាល័យ និងក្រុមហ៊ុន ឬរចនាឯកសណ្ឋានផ្ទាល់ខ្លួនរបស់អ្នក។ ដឹកជញ្ជូនរហ័សទូទាំងកម្ពុជា។</p>
+        <div class="hero-cta">
+          <a href="products.html" class="btn btn-gold"><span lang-en>Shop Now</span><span lang-km>ទិញឥឡូវនេះ</span></a>
+          <a href="custom-order.html" class="btn btn-outline-light">✂️ <span lang-en>Custom Uniform</span><span lang-km>ឯកសណ្ឋានតាមបំណង</span></a>
+        </div>
+        <div class="hero-stats">
+          <div><b>12,000+</b><span lang-en>Uniforms Delivered</span><span lang-km>ឈុតដឹកជញ្ជូនរួច</span></div>
+          <div><b>350+</b><span lang-en>School &amp; Business Partners</span><span lang-km>សាលា/ក្រុមហ៊ុនដៃគូ</span></div>
+          <div><b>4.8★</b><span lang-en>Customer Rating</span><span lang-km>ការវាយតម្លៃអតិថិជន</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="tall" src="images/uniformgirl/4.png" alt="Uniform">
+        <img src="images/uniofrmboy/2.jpg" alt="Uniform">
+        <img src="images/uniofrmboy/4.jpg" alt="Uniform">
+        <div class="card-float"><span class="dot">✓</span> <span><span lang-en>Order Confirmed</span><span lang-km>បញ្ជាក់ការបញ្ជាទិញ</span><br><span style="font-weight:500;color:var(--text-mute);font-size:11.5px;" lang-en>Delivered in 3 days</span><span style="font-weight:500;color:var(--text-mute);font-size:11.5px;" lang-km>ដឹកជញ្ជូនក្នុង ៣ថ្ងៃ</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-band">
+    <div class="container value-grid">
+      <div class="value-item"><span class="ic">🚚</span><div><b lang-en>Free Delivery</b><b lang-km>ដឹកជញ្ជូនឥតគិតថ្លៃ</b><span lang-en>On orders over $50</span><span lang-km>លើការបញ្ជាទិញលើស $50</span></div></div>
+      <div class="value-item"><span class="ic">🧵</span><div><b lang-en>Custom Tailoring</b><b lang-km>កាត់ដេរតាមបំណង</b><span lang-en>Logo & size customization</span><span lang-km>ដាក់ស្លាក និងទំហំតាមបំណង</span></div></div>
+      <div class="value-item"><span class="ic">🔒</span><div><b lang-en>Secure Payment</b><b lang-km>ការទូទាត់សុវត្ថិភាព</b><span lang-en>ABA, Card & COD</span><span lang-km>ABA កាត និងសាច់ប្រាក់</span></div></div>
+      <div class="value-item"><span class="ic">↩️</span><div><b lang-en>Easy Returns</b><b lang-km>ប្តូរតាមភាពងាយស្រួល</b><span lang-en>7-day size exchange</span><span lang-km>ប្តូរទំហំក្នុង ៧ថ្ងៃ</span></div></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div><span class="eyebrow" lang-en>Browse</span><span class="eyebrow" lang-km>រកមើល</span><h2 lang-en>Shop by Category</h2><h2 lang-km>ជ្រើសរើសតាមប្រភេទ</h2><p lang-en>Find the right uniform for every part of life.</p><p lang-km>ស្វែងរកឯកសណ្ឋានសមស្របសម្រាប់រាល់ការប្រើប្រាស់។</p></div>
+      <a href="products.html" class="btn btn-outline"><span lang-en>View All</span><span lang-km>មើលទាំងអស់</span> →</a>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="products.html?cat=school"><img src="images/uniformgirl/1.jpg" alt="School Uniform"><span class="label">🎒 <span lang-en>School</span><span lang-km>សាលារៀន</span><span lang-en>Uniform</span><span lang-km></span></span></a>
+      <a class="cat-card" href="products.html?cat=university"><img src="images/uniformgirl/2.jpg" alt="University Uniform"><span class="label">🎓 <span lang-en>University</span><span lang-km>សាកលវិទ្យាល័យ</span></span></a>
+      <a class="cat-card" href="products.html?cat=office"><img src="images/uniformgirl/3.jpg" alt="Office Uniform"><span class="label">💼 <span lang-en>Office</span><span lang-km>ការិយាល័យ</span></span></a>
+      <a class="cat-card" href="products.html?cat=corporate"><img src="images/uniofrmboy/4.jpg" alt="Corporate Uniform"><span class="label">🏢 <span lang-en>Corporate</span><span lang-km>ក្រុមហ៊ុន</span></span></a>
+      <a class="cat-card" href="custom-order.html"><img src="images/uniofrmboy/5.jpg" alt="Custom Uniform"><span class="label">✂️ <span lang-en>Custom</span><span lang-km>តាមបំណង</span></span></a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <div><span class="eyebrow" lang-en>Handpicked</span><span class="eyebrow" lang-km>ជ្រើសរើសពិសេស</span><h2 lang-en>Featured Products</h2><h2 lang-km>ទំនិញពិសេស</h2><p lang-en>Best-selling uniforms trusted by schools and businesses.</p><p lang-km>ឈុតឯកសណ្ឋានលក់ដាច់ដែលទុកចិត្តដោយសាលា និងអាជីវកម្ម។</p></div>
+      <a href="products.html" class="btn btn-outline"><span lang-en>View All</span><span lang-km>មើលទាំងអស់</span> →</a>
+    </div>
+    <div class="product-grid" id="featuredGrid"></div>
+  </section>
+
+  <section class="section container" style="padding-top:0;">
+    <div class="section-head">
+      <div><span class="eyebrow" lang-en>Just In</span><span class="eyebrow" lang-km>មកដល់ថ្មី</span><h2 lang-en>New Arrivals</h2><h2 lang-km>ទំនិញមកដល់ថ្មី</h2><p lang-en>Fresh uniform styles added this season.</p><p lang-km>ម៉ូតឯកសណ្ឋានថ្មីបន្ថែមរដូវនេះ។</p></div>
+    </div>
+    <div class="product-grid" id="newArrivalsGrid"></div>
+  </section>
+
+  <section class="section container">
+    <div class="custom-hero" style="border-radius:var(--radius-lg);">
+      <div class="container" style="display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;">
+        <div>
+          <span class="hero-eyebrow">✂️ <span lang-en>Design Your Own</span><span lang-km>រចនាឈុតផ្ទាល់ខ្លួន</span></span>
+          <h2 style="font-size:30px;" lang-en>Need Custom Uniforms for Your School or Company?</h2>
+          <h2 style="font-size:30px;" lang-km>ត្រូវការឯកសណ្ឋានតាមបំណងសម្រាប់សាលា ឬក្រុមហ៊ុនរបស់អ្នក?</h2>
+          <p style="color:#c9d2e8;" lang-en>Upload your logo or design, choose sizes and colors, and our team will handle bulk production and delivery.</p>
+          <p style="color:#c9d2e8;" lang-km>ផ្ទុកឡើងស្លាកសញ្ញា ឬការរចនារបស់អ្នក ជ្រើសរើសទំហំ និងពណ៌ ហើយក្រុមរបស់យើងនឹងផលិត និងដឹកជញ្ជូនជូន។</p>
+          <a href="custom-order.html" class="btn btn-gold" style="margin-top:10px;"><span lang-en>Start Custom Order</span><span lang-km>ចាប់ផ្តើមបញ្ជាទិញតាមបំណង</span></a>
+        </div>
+        <div class="step-mini">
+          <div><b>1</b><span lang-en>Upload Design</span><span lang-km>ផ្ទុកឡើងការរចនា</span></div>
+          <div><b>2</b><span lang-en>Get Quote</span><span lang-km>ទទួលបានតម្លៃ</span></div>
+          <div><b>3</b><span lang-en>We Produce</span><span lang-km>យើងផលិត</span></div>
+          <div><b>4</b><span lang-en>Fast Delivery</span><span lang-km>ដឹកជញ្ជូនរហ័ស</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="newsletter">
+      <div>
+        <h2 style="color:#fff;font-size:22px;" lang-en>Get 10% off your first order</h2>
+        <h2 style="color:#fff;font-size:22px;" lang-km>ទទួលបានការបញ្ចុះតម្លៃ ១០% លើការបញ្ជាទិញដំបូង</h2>
+        <p style="color:#aab6d6;margin:0;" lang-en>Subscribe for uniform tips, restock alerts and exclusive deals.</p>
+        <p style="color:#aab6d6;margin:0;" lang-km>ចុះឈ្មោះដើម្បីទទួលព័ត៌មានផលិតផលថ្មី និងការបញ្ចុះតម្លៃពិសេស។</p>
+      </div>
+      <form id="newsletterForm">
+        <input type="email" required placeholder="Enter your email">
+        <button type="submit" class="btn btn-gold"><span lang-en>Subscribe</span><span lang-km>ចុះឈ្មោះ</span></button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#fff;margin-bottom:14px;display:flex;">
+          <span class="logo-mark">👕</span><span style="color:#fff;">UniformHub</span>
+        </a>
+        <p><span lang-en>Premium school, university, office and corporate uniforms — tailored, delivered, and tracked from order to doorstep.</span><span lang-km>ឯកសណ្ឋានគុណភាពខ្ពស់សម្រាប់សាលារៀន សាកលវិទ្យាល័យ ការិយាល័យ និងក្រុមហ៊ុន — កាត់ដេរតាមបំណង ដឹកជញ្ជូន និងតាមដានពីការបញ្ជាទិញរហូតដល់ដៃ។</span></p>
+        <div class="social-row"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a></div>
+      </div>
+      <div>
+        <h4><span lang-en>Shop</span><span lang-km>ទំនិញ</span></h4>
+        <ul>
+          <li><a href="products.html?cat=school"><span lang-en>School Uniform</span><span lang-km>ឯកសណ្ឋានសាលារៀន</span></a></li>
+          <li><a href="products.html?cat=university"><span lang-en>University Uniform</span><span lang-km>ឯកសណ្ឋានសាកលវិទ្យាល័យ</span></a></li>
+          <li><a href="products.html?cat=office"><span lang-en>Office Uniform</span><span lang-km>ឯកសណ្ឋានការិយាល័យ</span></a></li>
+          <li><a href="products.html?cat=corporate"><span lang-en>Corporate Uniform</span><span lang-km>ឯកសណ្ឋានក្រុមហ៊ុន</span></a></li>
+          <li><a href="custom-order.html"><span lang-en>Custom Uniform</span><span lang-km>ឯកសណ្ឋានតាមបំណង</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span lang-en>Account</span><span lang-km>គណនី</span></h4>
+        <ul>
+          <li><a href="login.html"><span lang-en>Login</span><span lang-km>ចូលគណនី</span></a></li>
+          <li><a href="register.html"><span lang-en>Register</span><span lang-km>ចុះឈ្មោះ</span></a></li>
+          <li><a href="orders.html"><span lang-en>Order Tracking</span><span lang-km>តាមដានការបញ្ជាទិញ</span></a></li>
+          <li><a href="wishlist.html"><span lang-en>Wishlist</span><span lang-km>បញ្ជីចង់បាន</span></a></li>
+          <li><a href="cart.html"><span lang-en>Shopping Cart</span><span lang-km>រទេះទំនិញ</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h4><span lang-en>Contact Us</span><span lang-km>ទាក់ទងមកយើង</span></h4>
+        <ul>
+          <li>📍 <span lang-en>St. 271, Phnom Penh, Cambodia</span><span lang-km>ផ្លូវ ២៧១ ភ្នំពេញ កម្ពុជា</span></li>
+          <li>📞 +855 12 345 678</li>
+          <li>✉️ support@uniformhub.com</li>
+          <li>🕒 <span lang-en>Mon – Sat, 8:00 – 18:00</span><span lang-km>ច័ន្ទ–សៅរ៍ ៨:០០–១៨:០០</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 UniformHub. <span lang-en>All rights reserved.</span><span lang-km>រក្សាសិទ្ធិគ្រប់យ៉ាង។</span></span>
+      <div class="pay-icons"><span>VISA</span><span>Master</span><span>ABA PAY</span><span>COD</span></div>
+    </div>
+  </footer>
+
+  <div id="toast-stack"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/product-render.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function renderHome() {
+      const products = Store.getProducts();
+      renderProductGrid(document.getElementById('featuredGrid'), products.filter(p => p.isFeatured).slice(0, 8));
+      renderProductGrid(document.getElementById('newArrivalsGrid'), products.filter(p => p.isNew).slice(0, 4));
+    }
+    document.addEventListener('DOMContentLoaded', renderHome);
+    document.addEventListener('uh:langchange', renderHome);
+    document.addEventListener('uh:currencychange', renderHome);
+    document.addEventListener('uh:wishchange', renderHome);
+
+    document.getElementById('newsletterForm').addEventListener('submit', e => {
+      e.preventDefault();
+      toast(t('Subscribed! Check your inbox for your discount code.', 'បានចុះឈ្មោះ! សូមពិនិត្យអ៊ីមែលរបស់អ្នកសម្រាប់កូដបញ្ចុះតម្លៃ។'), 'success');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

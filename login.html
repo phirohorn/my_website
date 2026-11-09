@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — UniformHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left"><span>📞 +855 12 345 678</span><span>✉️ support@uniformhub.com</span></div>
+      <div class="topbar-right">
+        <div class="switcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="km">ខ្មែរ</button></div>
+        <div class="switcher"><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="KHR">KHR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <a href="index.html" class="brand"><span class="logo-mark">👕</span><span>UniformHub<span class="sub" lang-en>Uniform Specialists</span><span class="sub" lang-km>អ្នកឯកទេសឯកសណ្ឋាន</span></span></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" data-nav="home"><span lang-en>Home</span><span lang-km>ទំព័រដើម</span></a>
+        <a href="products.html" data-nav="products"><span lang-en>All Products</span><span lang-km>ទំនិញទាំងអស់</span></a>
+        <a href="orders.html" data-nav="orders"><span lang-en>Track Order</span><span lang-km>តាមដានការបញ្ជាទិញ</span></a>
+      </nav>
+      <div class="header-actions">
+        <a href="wishlist.html" class="icon-btn">❤️<span class="badge-count js-wish-count" style="display:none">0</span></a>
+        <a href="cart.html" class="icon-btn">🛒<span class="badge-count js-cart-count" style="display:none">0</span></a>
+        <div class="user-menu"><button type="button" class="icon-btn">👤</button><div class="user-drop" id="userMenuBox"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="auth-shell">
+      <div class="form-card">
+        <div style="text-align:center;margin-bottom:22px;">
+          <span class="logo-mark" style="margin:0 auto 12px;">👕</span>
+          <h2 lang-en>Welcome Back</h2><h2 lang-km>សូមស្វាគមន៍មកវិញ</h2>
+          <p lang-en>Login to track orders, manage your wishlist and checkout faster.</p>
+          <p lang-km>ចូលគណនីដើម្បីតាមដានការបញ្ជាទិញ គ្រប់គ្រងបញ្ជីចង់បាន និងទូទាត់លឿនជាងមុន។</p>
+        </div>
+        <div id="loginError" style="display:none;background:#fde7e7;color:var(--red-500);padding:10px 14px;border-radius:8px;font-size:13px;font-weight:600;margin-bottom:14px;"></div>
+        <form id="loginForm">
+          <div class="form-group"><label lang-en>Email</label><label lang-km>អ៊ីមែល</label><input type="email" id="loginEmail" required placeholder="you@example.com"></div>
+          <div class="form-group"><label lang-en>Password</label><label lang-km>ពាក្យសម្ងាត់</label><input type="password" id="loginPassword" required placeholder="••••••••"></div>
+          <button type="submit" class="btn btn-primary btn-block"><span lang-en>Login</span><span lang-km>ចូលគណនី</span></button>
+        </form>
+        <div class="divider"></div>
+        <div style="background:var(--surface-2);border-radius:10px;padding:12px 14px;font-size:12.5px;color:var(--text-mute);line-height:1.7;">
+          <b lang-en>Demo accounts</b><b lang-km>គណនីសាកល្បង</b><br>
+          <span lang-en>Admin:</span><span lang-km>អ្នកគ្រប់គ្រង:</span> admin@uniformhub.com / admin123<br>
+          <span lang-en>Customer:</span><span lang-km>អតិថិជន:</span> demo@uniformhub.com / demo123
+        </div>
+        <div class="auth-switch"><span lang-en>Don't have an account?</span><span lang-km>មិនទាន់មានគណនី?</span> <a href="register.html" style="color:var(--blue-600);font-weight:700;"><span lang-en>Register</span><span lang-km>ចុះឈ្មោះ</span></a></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-stack"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const nextUrl = new URLSearchParams(location.search).get('next') || 'index.html';
+    if (Auth.isLoggedIn()) location.href = nextUrl;
+
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const res = Auth.login(email, password);
+      const errBox = document.getElementById('loginError');
+      if (!res.ok) {
+        errBox.textContent = res.error;
+        errBox.style.display = 'block';
+        return;
+      }
+      errBox.style.display = 'none';
+      toast(t('Welcome back, ', 'សូមស្វាគមន៍, ') + res.user.name + '!', 'success');
+      setTimeout(() => { location.href = nextUrl; }, 600);
+    });
+  </script>
+</body>
+</html>

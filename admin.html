@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — UniformHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="admin">
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand"><span class="logo-mark">👕</span><span>UniformHub<span class="sub" lang-en>Admin Dashboard</span><span class="sub" lang-km>ផ្ទាំងគ្រប់គ្រង</span></span></a>
+      <div style="flex:1;"></div>
+      <div class="header-actions">
+        <div class="switcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="km">ខ្មែរ</button></div>
+        <a href="index.html" class="btn btn-outline btn-sm">🏠 <span lang-en>View Store</span><span lang-km>មើលហាង</span></a>
+        <div class="user-menu"><button type="button" class="icon-btn">👤</button><div class="user-drop" id="userMenuBox"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <div id="adminGuard" class="empty-state" style="display:none;">
+    <div class="ic">🔒</div>
+    <h3 lang-en>Admin access required</h3><h3 lang-km>ត្រូវការសិទ្ធិជាអ្នកគ្រប់គ្រង</h3>
+    <a href="login.html?next=admin.html" class="btn btn-primary"><span lang-en>Login as Admin</span><span lang-km>ចូលគណនីជាអ្នកគ្រប់គ្រង</span></a>
+  </div>
+
+  <div class="admin-shell" id="adminShell" style="display:none;">
+    <aside class="admin-side">
+      <h4 lang-en>Overview</h4><h4 lang-km>ទិដ្ឋភាពទូទៅ</h4>
+      <a href="#" class="admin-nav-link active" data-section="dashboard">📊 <span lang-en>Dashboard</span><span lang-km>ផ្ទាំងគ្រប់គ្រង</span></a>
+      <h4 lang-en>Catalog</h4><h4 lang-km>កាតាឡុក</h4>
+      <a href="#" class="admin-nav-link" data-section="products">👕 <span lang-en>Products</span><span lang-km>ទំនិញ</span></a>
+      <a href="#" class="admin-nav-link" data-section="categories">🗂 <span lang-en>Categories</span><span lang-km>ប្រភេទ</span></a>
+      <a href="#" class="admin-nav-link" data-section="stock">📦 <span lang-en>Stock</span><span lang-km>ស្តុក</span></a>
+      <h4 lang-en>Sales</h4><h4 lang-km>ការលក់</h4>
+      <a href="#" class="admin-nav-link" data-section="orders">🧾 <span lang-en>Orders</span><span lang-km>ការបញ្ជាទិញ</span></a>
+      <a href="#" class="admin-nav-link" data-section="custom">✂️ <span lang-en>Custom Orders</span><span lang-km>ការបញ្ជាទិញតាមបំណង</span></a>
+      <a href="#" class="admin-nav-link" data-section="customers">👥 <span lang-en>Customers</span><span lang-km>អតិថិជន</span></a>
+    </aside>
+
+    <main class="admin-main">
+      <!-- DASHBOARD -->
+      <section class="admin-section active" id="sec-dashboard">
+        <div class="admin-topbar"><h2 lang-en>Dashboard Overview</h2><h2 lang-km>ទិដ្ឋភាពទូទៅផ្ទាំងគ្រប់គ្រង</h2></div>
+        <div class="stat-grid">
+          <div class="stat-card"><span class="ic" style="background:#e2eafe;">💰</span><div><b id="dashRevenue">$0</b><span lang-en>Total Revenue</span><span lang-km>ចំណូលសរុប</span></div></div>
+          <div class="stat-card"><span class="ic" style="background:#eee0fd;">🧾</span><div><b id="dashOrders">0</b><span lang-en>Total Orders</span><span lang-km>ការបញ្ជាទិញសរុប</span></div></div>
+          <div class="stat-card"><span class="ic" style="background:#e0f6e6;">👕</span><div><b id="dashProducts">0</b><span lang-en>Products</span><span lang-km>ទំនិញ</span></div></div>
+          <div class="stat-card"><span class="ic" style="background:#fdecd1;">👥</span><div><b id="dashCustomers">0</b><span lang-en>Customers</span><span lang-km>អតិថិជន</span></div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3 lang-en>Recent Orders</h3><h3 lang-km>ការបញ្ជាទិញថ្មីៗ</h3></div>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr>
+              <th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th>
+            </tr></thead>
+            <tbody id="dashRecentOrders"></tbody>
+          </table></div>
+        </div>
+        <div class="panel" id="lowStockPanel">
+          <div class="panel-head"><h3 lang-en>Low Stock Alerts</h3><h3 lang-km>ការជូនដំណឹងស្តុកទាប</h3></div>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>Product</th><th>Category</th><th>Stock Left</th><th></th></tr></thead>
+            <tbody id="dashLowStock"></tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="admin-section" id="sec-products">
+        <div class="admin-topbar">
+          <h2 lang-en>Products</h2><h2 lang-km>ទំនិញ</h2>
+          <div style="display:flex;gap:10px;">
+            <input type="text" id="prodSearch" placeholder="Search products..." style="padding:10px 14px;border-radius:8px;border:1.5px solid var(--border);">
+            <button class="btn btn-primary" id="addProductBtn">+ <span lang-en>Add Product</span><span lang-km>បន្ថែមទំនិញ</span></button>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr>
+            <th></th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th>
+          </tr></thead>
+          <tbody id="productsTableBody"></tbody>
+        </table></div>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="admin-section" id="sec-categories">
+        <div class="admin-topbar">
+          <h2 lang-en>Categories</h2><h2 lang-km>ប្រភេទ</h2>
+          <button class="btn btn-primary" id="addCategoryBtn">+ <span lang-en>Add Category</span><span lang-km>បន្ថែមប្រភេទ</span></button>
+        </div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>Icon</th><th>Name (EN)</th><th>Name (KM)</th><th>Products</th><th>Actions</th></tr></thead>
+          <tbody id="categoriesTableBody"></tbody>
+        </table></div>
+      </section>
+
+      <!-- STOCK -->
+      <section class="admin-section" id="sec-stock">
+        <div class="admin-topbar"><h2 lang-en>Stock Management</h2><h2 lang-km>ការគ្រប់គ្រងស្តុក</h2></div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th></th><th>Product</th><th>Category</th><th>Current Stock</th><th>Update Stock</th></tr></thead>
+          <tbody id="stockTableBody"></tbody>
+        </table></div>
+      </section>
+
+      <!-- ORDERS -->
+      <section class="admin-section" id="sec-orders">
+        <div class="admin-topbar">
+          <h2 lang-en>Orders</h2><h2 lang-km>ការបញ្ជាទិញ</h2>
+          <select id="orderStatusFilter">
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="processing">Processing</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr>
+            <th>Order ID</th><th>Customer</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th>Actions</th>
+          </tr></thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table></div>
+      </section>
+
+      <!-- CUSTOM ORDERS -->
+      <section class="admin-section" id="sec-custom">
+        <div class="admin-topbar"><h2 lang-en>Custom Uniform Requests</h2><h2 lang-km>សំណើឯកសណ្ឋានតាមបំណង</h2></div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr>
+            <th>Ref ID</th><th>Organization</th><th>Category</th><th>Qty</th><th>Contact</th><th>Status</th><th>Actions</th>
+          </tr></thead>
+          <tbody id="customTableBody"></tbody>
+        </table></div>
+      </section>
+
+      <!-- CUSTOMERS -->
+      <section class="admin-section" id="sec-customers">
+        <div class="admin-topbar"><h2 lang-en>Customers</h2><h2 lang-km>អតិថិជន</h2></div>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Total Spent</th><th>Actions</th>
+          </tr></thead>
+          <tbody id="customersTableBody"></tbody>
+        </table></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox"></div>
+  </div>
+
+  <div id="toast-stack"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/order-render.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin-page.js"></script>
+</body>
+</html>

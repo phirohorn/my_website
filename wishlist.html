@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist — UniformHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="wishlist">
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left"><span>📞 +855 12 345 678</span><span>✉️ support@uniformhub.com</span></div>
+      <div class="topbar-right">
+        <div class="switcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="km">ខ្មែរ</button></div>
+        <div class="switcher"><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="KHR">KHR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <a href="index.html" class="brand"><span class="logo-mark">👕</span><span>UniformHub<span class="sub" lang-en>Uniform Specialists</span><span class="sub" lang-km>អ្នកឯកទេសឯកសណ្ឋាន</span></span></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" data-nav="home"><span lang-en>Home</span><span lang-km>ទំព័រដើម</span></a>
+        <a href="products.html" data-nav="products"><span lang-en>Shop</span><span lang-km>ទំនិញ</span></a>
+        <a href="custom-order.html" data-nav="custom"><span lang-en>Custom Uniform</span><span lang-km>តាមបំណង</span></a>
+        <a href="orders.html" data-nav="orders"><span lang-en>Track Order</span><span lang-km>តាមដានការបញ្ជាទិញ</span></a>
+      </nav>
+      <form class="header-search" id="headerSearch">
+        <input type="text" id="headerSearchInput" placeholder="Search uniforms...">
+        <button type="submit">🔍</button>
+      </form>
+      <div class="header-actions">
+        <button type="button" class="icon-btn search-toggle-btn" id="searchToggle">🔍</button>
+        <a href="wishlist.html" class="icon-btn">❤️<span class="badge-count js-wish-count" style="display:none">0</span></a>
+        <a href="cart.html" class="icon-btn">🛒<span class="badge-count js-cart-count" style="display:none">0</span></a>
+        <div class="user-menu"><button type="button" class="icon-btn">👤</button><div class="user-drop" id="userMenuBox"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html"><span lang-en>Home</span><span lang-km>ទំព័រដើម</span></a> / <span lang-en>Wishlist</span><span lang-km>បញ្ជីចង់បាន</span></div>
+  </div>
+
+  <div class="container section" style="padding-top:8px;">
+    <div class="section-head">
+      <div><h2 lang-en>My Wishlist</h2><h2 lang-km>បញ្ជីចង់បានរបស់ខ្ញុំ</h2><p id="wishSubtitle"></p></div>
+    </div>
+    <div id="wishEmpty" class="empty-state" style="display:none;">
+      <div class="ic">❤️</div>
+      <h3 lang-en>Your wishlist is empty</h3><h3 lang-km>បញ្ជីចង់បានរបស់អ្នកទទេ</h3>
+      <p lang-en>Save items you love and find them here later.</p><p lang-km>រក្សាទុកទំនិញដែលអ្នកចូលចិត្ត ហើយស្វែងរកនៅទីនេះនៅពេលក្រោយ។</p>
+      <a href="products.html" class="btn btn-primary"><span lang-en>Browse Products</span><span lang-km>ស្វែងរកទំនិញ</span></a>
+    </div>
+    <div class="product-grid" id="wishGrid"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#fff;margin-bottom:14px;display:flex;"><span class="logo-mark">👕</span><span style="color:#fff;">UniformHub</span></a>
+        <p><span lang-en>Premium school, university, office and corporate uniforms — tailored, delivered, and tracked from order to doorstep.</span><span lang-km>ឯកសណ្ឋានគុណភាពខ្ពស់សម្រាប់សាលារៀន សាកលវិទ្យាល័យ ការិយាល័យ និងក្រុមហ៊ុន — កាត់ដេរតាមបំណង ដឹកជញ្ជូន និងតាមដានពីការបញ្ជាទិញរហូតដល់ដៃ។</span></p>
+        <div class="social-row"><a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a></div>
+      </div>
+      <div><h4><span lang-en>Shop</span><span lang-km>ទំនិញ</span></h4>
+        <ul>
+          <li><a href="products.html?cat=school"><span lang-en>School Uniform</span><span lang-km>ឯកសណ្ឋានសាលារៀន</span></a></li>
+          <li><a href="products.html?cat=university"><span lang-en>University Uniform</span><span lang-km>ឯកសណ្ឋានសាកលវិទ្យាល័យ</span></a></li>
+          <li><a href="products.html?cat=office"><span lang-en>Office Uniform</span><span lang-km>ឯកសណ្ឋានការិយាល័យ</span></a></li>
+          <li><a href="products.html?cat=corporate"><span lang-en>Corporate Uniform</span><span lang-km>ឯកសណ្ឋានក្រុមហ៊ុន</span></a></li>
+          <li><a href="custom-order.html"><span lang-en>Custom Uniform</span><span lang-km>ឯកសណ្ឋានតាមបំណង</span></a></li>
+        </ul>
+      </div>
+      <div><h4><span lang-en>Account</span><span lang-km>គណនី</span></h4>
+        <ul>
+          <li><a href="login.html"><span lang-en>Login</span><span lang-km>ចូលគណនី</span></a></li>
+          <li><a href="register.html"><span lang-en>Register</span><span lang-km>ចុះឈ្មោះ</span></a></li>
+          <li><a href="orders.html"><span lang-en>Order Tracking</span><span lang-km>តាមដានការបញ្ជាទិញ</span></a></li>
+          <li><a href="wishlist.html"><span lang-en>Wishlist</span><span lang-km>បញ្ជីចង់បាន</span></a></li>
+          <li><a href="cart.html"><span lang-en>Shopping Cart</span><span lang-km>រទេះទំនិញ</span></a></li>
+        </ul>
+      </div>
+      <div><h4><span lang-en>Contact Us</span><span lang-km>ទាក់ទងមកយើង</span></h4>
+        <ul>
+          <li>📍 <span lang-en>St. 271, Phnom Penh, Cambodia</span><span lang-km>ផ្លូវ ២៧១ ភ្នំពេញ កម្ពុជា</span></li>
+          <li>📞 +855 12 345 678</li>
+          <li>✉️ support@uniformhub.com</li>
+          <li>🕒 <span lang-en>Mon – Sat, 8:00 – 18:00</span><span lang-km>ច័ន្ទ–សៅរ៍ ៨:០០–១៨:០០</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 UniformHub. <span lang-en>All rights reserved.</span><span lang-km>រក្សាសិទ្ធិគ្រប់យ៉ាង។</span></span>
+      <div class="pay-icons"><span>VISA</span><span>Master</span><span>ABA PAY</span><span>COD</span></div>
+    </div>
+  </footer>
+
+  <div id="toast-stack"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/product-render.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function renderWishlistPage() {
+      const products = Wishlist.products();
+      document.getElementById('wishSubtitle').textContent = products.length + ' ' + t('item(s) saved', 'ទំនិញត្រូវបានរក្សាទុក');
+      document.getElementById('wishEmpty').style.display = products.length ? 'none' : 'block';
+      renderProductGrid(document.getElementById('wishGrid'), products);
+    }
+    document.addEventListener('DOMContentLoaded', renderWishlistPage);
+    document.addEventListener('uh:langchange', renderWishlistPage);
+    document.addEventListener('uh:currencychange', renderWishlistPage);
+    document.addEventListener('uh:wishchange', renderWishlistPage);
+  </script>
+</body>
+</html>

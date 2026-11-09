@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Uniform Request — UniformHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="custom">
+
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left"><span>📞 +855 12 345 678</span><span>✉️ support@uniformhub.com</span></div>
+      <div class="topbar-right">
+        <div class="switcher"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="km">ខ្មែរ</button></div>
+        <div class="switcher"><button class="cur-btn" data-cur="USD">USD</button><button class="cur-btn" data-cur="KHR">KHR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <a href="index.html" class="brand"><span class="logo-mark">👕</span><span>UniformHub<span class="sub" lang-en>Uniform Specialists</span><span class="sub" lang-km>អ្នកឯកទេសឯកសណ្ឋាន</span></span></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" data-nav="home"><span lang-en>Home</span><span lang-km>ទំព័រដើម</span></a>
+        <a href="products.html" data-nav="products"><span lang-en>Shop</span><span lang-km>ទំនិញ</span></a>
+        <a href="custom-order.html" data-nav="custom"><span lang-en>Custom Uniform</span><span lang-km>តាមបំណង</span></a>
+        <a href="orders.html" data-nav="orders"><span lang-en>Track Order</span><span lang-km>តាមដានការបញ្ជាទិញ</span></a>
+      </nav>
+      <div class="header-actions">
+        <a href="wishlist.html" class="icon-btn">❤️<span class="badge-count js-wish-count" style="display:none">0</span></a>
+        <a href="cart.html" class="icon-btn">🛒<span class="badge-count js-cart-count" style="display:none">0</span></a>
+        <div class="user-menu"><button type="button" class="icon-btn">👤</button><div class="user-drop" id="userMenuBox"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="custom-hero">
+    <div class="container" style="text-align:center;">
+      <span class="hero-eyebrow">✂️ <span lang-en>Custom Uniform Service</span><span lang-km>សេវាកម្មឯកសណ្ឋានតាមបំណង</span></span>
+      <h1 style="font-size:34px;" lang-en>Design Your Own Uniform</h1>
+      <h1 style="font-size:34px;" lang-km>រចនាឯកសណ្ឋានផ្ទាល់ខ្លួនរបស់អ្នក</h1>
+      <p class="lead" style="max-width:600px;margin:0 auto;" lang-en>Upload your logo or design, tell us your requirements, and our team will send you a quote within 24 hours.</p>
+      <p class="lead" style="max-width:600px;margin:0 auto;" lang-km>ផ្ទុកឡើងស្លាកសញ្ញា ឬការរចនារបស់អ្នក ប្រាប់យើងពីតម្រូវការរបស់អ្នក ហើយក្រុមរបស់យើងនឹងផ្ញើតម្លៃជូនក្នុងរយៈពេល ២៤ម៉ោង។</p>
+    </div>
+  </section>
+
+  <div class="container section" style="max-width:820px;">
+    <div id="customSuccess" class="empty-state" style="display:none;">
+      <div class="ic">✅</div>
+      <h3 lang-en>Request Submitted!</h3><h3 lang-km>បានដាក់ស្នើសំណើរដោយជោគជ័យ!</h3>
+      <p lang-en>Your custom uniform request <b id="successRefId"></b> has been received. Our team will contact you within 24 hours with a quote.</p>
+      <p lang-km>សំណើឯកសណ្ឋានតាមបំណងរបស់អ្នក <b id="successRefIdKm"></b> ត្រូវបានទទួល។ ក្រុមរបស់យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល ២៤ម៉ោងជាមួយតម្លៃ។</p>
+      <a href="index.html" class="btn btn-primary"><span lang-en>Back to Home</span><span lang-km>ត្រឡប់ទៅទំព័រដើម</span></a>
+    </div>
+
+    <form id="customForm" class="form-card">
+      <h3 lang-en>1. Design</h3><h3 lang-km>១. ការរចនា</h3>
+      <div class="form-group">
+        <label lang-en>Upload Logo / Design</label><label lang-km>ផ្ទុកឡើងស្លាកសញ្ញា/ការរចនា</label>
+        <label class="file-drop" id="fileDropLabel" for="designFile">
+          <img id="designPreview" style="display:none;">
+          <div id="fileDropText">📤 <span lang-en>Click to upload an image (PNG, JPG)</span><span lang-km>ចុចដើម្បីផ្ទុកឡើងរូបភាព (PNG, JPG)</span></div>
+        </label>
+        <input type="file" id="designFile" accept="image/*" style="display:none;">
+        <small lang-en>Optional but recommended — helps us quote accurately.</small>
+        <small lang-km>ស្រេចចិត្ត ប៉ុន្តែផ្តល់អនុសាសន៍ — ជួយឱ្យយើងកំណត់តម្លៃបានត្រឹមត្រូវ។</small>
+      </div>
+
+      <div class="divider"></div>
+      <h3 lang-en>2. Order Requirements</h3><h3 lang-km>២. តម្រូវការការបញ្ជាទិញ</h3>
+      <div class="form-row">
+        <div class="form-group"><label lang-en>School / Company Name</label><label lang-km>ឈ្មោះសាលា/ក្រុមហ៊ុន</label><input type="text" id="orgName" required></div>
+        <div class="form-group"><label lang-en>Uniform Category</label><label lang-km>ប្រភេទឯកសណ្ឋាន</label>
+          <select id="customCategory" required>
+            <option value="school">School Uniform</option>
+            <option value="university">University Uniform</option>
+            <option value="office">Office Uniform</option>
+            <option value="corporate">Corporate Uniform</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label lang-en>Garment Description</label><label lang-km>ការពិពណ៌នាឈុត</label><textarea id="garmentDesc" rows="2" placeholder="e.g. Polo shirt + trousers, embroidered logo on chest" required></textarea></div>
+
+      <div class="form-group">
+        <label lang-en>Quantity by Size</label><label lang-km>ចំនួនតាមទំហំ</label>
+        <div class="form-row" style="grid-template-columns:repeat(6,1fr);gap:8px;">
+          <div><small>XS</small><input type="number" min="0" value="0" class="size-qty" data-size="XS" style="padding:8px;"></div>
+          <div><small>S</small><input type="number" min="0" value="0" class="size-qty" data-size="S" style="padding:8px;"></div>
+          <div><small>M</small><input type="number" min="0" value="0" class="size-qty" data-size="M" style="padding:8px;"></div>
+          <div><small>L</small><input type="number" min="0" value="0" class="size-qty" data-size="L" style="padding:8px;"></div>
+          <div><small>XL</small><input type="number" min="0" value="0" class="size-qty" data-size="XL" style="padding:8px;"></div>
+          <div><small>XXL</small><input type="number" min="0" value="0" class="size-qty" data-size="XXL" style="padding:8px;"></div>
+        </div>
+        <small><span lang-en>Total quantity:</span><span lang-km>ចំនួនសរុប:</span> <b id="totalQtyLabel">0</b></small>
+      </div>
+      <div class="form-group"><label lang-en>Preferred Colors</label><label lang-km>ពណ៌ដែលចង់បាន</label><input type="text" id="prefColors" placeholder="e.g. Navy blue & white"></div>
+
+      <div class="divider"></div>
+      <h3 lang-en>3. Contact Information</h3><h3 lang-km>៣. ព័ត៌មានទំនាក់ទំនង</h3>
+      <div class="form-row">
+        <div class="form-group"><label lang-en>Contact Name</label><label lang-km>ឈ្មោះទំនាក់ទំនង</label><input type="text" id="contactName" required></div>
+        <div class="form-group"><label lang-en>Phone Number</label><label lang-km>លេខទូរស័ព្ទ</label><input type="tel" id="contactPhone" required></div>
+      </div>
+      <div class="form-group"><label lang-en>Email</label><label lang-km>អ៊ីមែល</label><input type="email" id="contactEmail" required></div>
+      <div class="form-group"><label lang-en>Additional Notes</label><label lang-km>កំណត់ចំណាំបន្ថែម</label><textarea id="customNotes" rows="2"></textarea></div>
+
+      <button type="submit" class="btn btn-gold btn-block" style="margin-top:8px;">✂️ <span lang-en>Submit Custom Request</span><span lang-km>ដាក់ស្នើសំណើតាមបំណង</span></button>
+    </form>
+  </div>
+
+  <div id="toast-stack"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/custom-order-page.js"></script>
+</body>
+</html>
